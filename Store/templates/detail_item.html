@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="article-entry">
+        <h2>{{ item.title }}</h2>
+        <p>owner {{ item.owner }} | {{ item.date }}</p>
+        <p>{{ item.price }}</p>
+        <p>{{ item.amount }}</p>
+    </div>
+    <p>
+        <a href="{% url 'update_item' item.pk %}">Edit</a>
+        |
+        <a href="{% url 'delete_item' item.pk %}">Delete</a>
+    </p>
+    <p>Back to
+        <a href="{% url 'list_item' %}">All Items</a>
+    </p>
+{% endblock content %}

@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for item in list_item %}
+        <div class="card">
+            <div class="card-header">
+                <span class="font-weight-bold">{{ item.title }}</span> 
+                |
+                <span class="font-weight-bold">{{ item.owner }}</span> 
+                |
+                <span class="font-weight-bold">{{ item.date }}</span> 
+            </div>
+            <div class="card-footer text-center text-muted">
+                <a href="{% url 'update_item' item.pk %}">Edit</a> 
+                | 
+                <a href="{% url 'delete_item' item.pk %}">Delete</a>
+                |
+                <a href="{% url 'detail_item' item.pk %}">Detail</a>
+            </div>
+        </div>
+        <br/>
+    {% endfor %}
+{% endblock content %}
